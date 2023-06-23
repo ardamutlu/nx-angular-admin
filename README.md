@@ -6,6 +6,6 @@
 
 ## Start the app
 
-To start the development server run `npm run start`. Open your browser and navigate to http://localhost:4200/. Happy coding!
+To start the development server run `npm install && npm run start`. Open your browser and navigate to http://localhost:4200/. Happy coding!
 
 Learn more about [Nx generators on the docs](https://nx.dev/plugin-features/use-code-generators).
