@@ -1,0 +1,44 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "car_id": "e2470003-1a35-472b-a86b-cd7a11435200",
+      "instock": true,
+      "hp": 250,
+      "price": 53,
+      "color": "blue"
+    },
+    {
+      "id": 2,
+      "car_id": "6caf3631-874f-4f81-b18e-17cd5f44eb3c",
+      "instock": true,
+      "hp": "350",
+      "price": "70",
+      "color": "blue"
+    },
+    {
+      "id": 3,
+      "car_id": "b308dd84-0b04-4cc2-91a1-54d0f77b557a",
+      "instock": false,
+      "hp": "250",
+      "price": "50",
+      "color": "blue"
+    },
+    {
+      "id": 4,
+      "car_id": "ca0de7d1-60ec-4ec9-b718-ea03bb126e11",
+      "instock": false,
+      "hp": "250",
+      "price": "40",
+      "color": "white"
+    },
+    {
+      "id": 5,
+      "car_id": "d64e604d-3622-4b9d-adf1-7a01c5bda051",
+      "instock": false,
+      "hp": "350",
+      "price": 61,
+      "color": "red"
+    }
+  ]
+}

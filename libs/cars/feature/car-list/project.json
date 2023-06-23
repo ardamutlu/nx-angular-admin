@@ -1,0 +1,50 @@
+{
+  "name": "cars-feature-car-list",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/cars/feature/car-list/src",
+  "prefix": "mbenz",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/cars/feature/car-list/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/cars/feature/car-list/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/cars/feature/car-list/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/cars/feature/car-list/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/cars/feature/car-list/**/*.ts",
+          "libs/cars/feature/car-list/**/*.html"
+        ]
+      }
+    }
+  }
+}

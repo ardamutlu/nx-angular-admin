@@ -1,0 +1,98 @@
+<div class="grid md:grid-cols-4 grid-cols-1">
+  <mat-card class="md:col-start-2 md:col-span-2">
+    <mat-card-header>
+      <mat-card-title>Car Edit</mat-card-title>
+    </mat-card-header>
+    <ng-container *ngIf="(isLoaded$ | async) === true; else isLoading">
+      <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+        <mat-card-content>
+          <div class="mb-4">
+            <label>ID: </label>
+            <div class="inline-block">{{ this.form.value.id }}</div>
+          </div>
+          <div class="mb-4">
+            <label>CAR: </label>
+            <div class="inline-block">{{ this.form.value.car_id }}</div>
+          </div>
+          <div>
+            <mat-form-field>
+              <mat-label>HORSE POWER</mat-label>
+              <input
+                required
+                matInput
+                type="number"
+                min="100"
+                max="550"
+                name="hp"
+                formControlName="hp"
+              />
+              <mat-error *ngIf="form.controls.hp.invalid">
+                <mbenz-form-error [ctrl]="form.get('hp')"></mbenz-form-error>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field>
+              <mat-label>Price</mat-label>
+              <input
+                required
+                matInput
+                name="price"
+                formControlName="price"
+                type="number"
+                min="0"
+                placeholder="0"
+              />
+              <span matTextPrefix>$&nbsp;</span>
+              <span matTextSuffix>.00</span>
+              <mat-error *ngIf="form.controls.price.invalid">
+                <mbenz-form-error [ctrl]="form.get('price')"></mbenz-form-error>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="mb-4">
+            <div>
+              <label>Color: </label>
+              <mat-radio-group formControlName="color">
+                <mat-radio-button value="red">Red</mat-radio-button>
+                <mat-radio-button value="blue">Blue</mat-radio-button>
+                <mat-radio-button value="white">White</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+          <div class="mb-4">
+            <mat-checkbox formControlName="instock">Instock</mat-checkbox>
+          </div>
+          <mat-divider></mat-divider>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            type="submit"
+            mat-stroked-button
+            color="primary"
+            class="mr-2"
+            [disabled]="form.invalid || (isLoading$ | async)"
+          >
+            Save
+          </button>
+          <button
+            mat-stroked-button
+            color="accent"
+            type="button"
+            (click)="navigateTo()"
+          >
+            Cancel
+          </button>
+        </mat-card-actions>
+      </form>
+      <mat-card-footer *ngIf="(isLoading$ | async) === true">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </mat-card-footer>
+    </ng-container>
+  </mat-card>
+
+  <ng-template #isLoading>
+    <div class="text-center p-10">Loading...</div>
+  </ng-template>
+</div>

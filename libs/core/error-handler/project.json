@@ -1,0 +1,50 @@
+{
+  "name": "core-error-handler",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/error-handler/src",
+  "prefix": "mbenz",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/core/error-handler/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/core/error-handler/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/core/error-handler/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/core/error-handler/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/core/error-handler/**/*.ts",
+          "libs/core/error-handler/**/*.html"
+        ]
+      }
+    }
+  }
+}

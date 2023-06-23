@@ -1,0 +1,32 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@m-benz/cars/data-access": ["libs/cars/data-access/src/index.ts"],
+      "@m-benz/cars/feature/car-edit": [
+        "libs/cars/feature/car-edit/src/index.ts"
+      ],
+      "@m-benz/cars/feature/car-list": [
+        "libs/cars/feature/car-list/src/index.ts"
+      ],
+      "@m-benz/core/error-handler": ["libs/core/error-handler/src/index.ts"],
+      "@m-benz/core/http-client": ["libs/core/http-client/src/index.ts"],
+      "@m-benz/data-models": ["libs/data-models/index.ts"],
+      "@m-benz/ui": ["libs/ui/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
